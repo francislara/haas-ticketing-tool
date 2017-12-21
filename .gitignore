@@ -20,4 +20,5 @@ bundle.js.map
 /yarn-error.log
 
 .byebug_history
+service-account.json
 
