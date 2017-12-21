@@ -1,6 +1,6 @@
 export const postColumn = message => (
   $.ajax({
-  url: '/api/users',
+  url: '/api/tickets',
    method: 'POST',
    data: { message }
   })

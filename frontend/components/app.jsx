@@ -50,7 +50,7 @@ class App extends React.Component {
             onChange={this.handleInput('body')}
             spellCheck="false"
           />
-          <button onClick={this.handleSubmit}>Login</button>
+          <button onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     );
