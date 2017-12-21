@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { withRouter } from 'react-router';
 import { postColumn } from '../util/spreadsheet';
+import { RadioGroup, RadioButton } from 'react-radio-buttons';
 
 class App extends React.Component {
   constructor (props) {
@@ -11,6 +12,8 @@ class App extends React.Component {
       house: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.handleRadio = this.handleRadio.bind(this);
   }
 
   handleSubmit(e) {
@@ -27,20 +30,34 @@ class App extends React.Component {
     };
   }
 
+  handleRadio(house) {
+    this.setState({
+      house: house
+    });
+  }
+
 
   render() {
     return (
       <div>
+        <RadioGroup onChange={ this.handleRadio } horizontal>
+          <RadioButton value="Berry">
+            Berry
+          </RadioButton>
+          <RadioButton value="B2">
+            B2
+          </RadioButton>
+          <RadioButton value="Snap">
+            Snap
+          </RadioButton>
+          <RadioButton value="L7">
+            L7
+          </RadioButton>
+          <RadioButton value="HQ">
+            HQ
+          </RadioButton>
+        </RadioGroup>
         <form>
-          <label>
-            House
-          </label>
-          <input 
-            type="text"
-            value={this.state.house}
-            onChange={this.handleInput('house')}
-            spellCheck="false"
-            />
           <label>
             Message
           </label>
