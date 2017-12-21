@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :tickets, only: %i(create index)
   end
+
+  root to: 'root#root'
 end
