@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { withRouter } from 'react-router';
+// import { withRouter } from 'react-router';
 import { postColumn } from '../util/spreadsheet';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 
@@ -74,4 +74,4 @@ class App extends React.Component {
   }
 }
 
-export default withRouter(App);
+export default App;
