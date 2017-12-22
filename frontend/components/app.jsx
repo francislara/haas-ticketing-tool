@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 // import { withRouter } from 'react-router';
 import { postColumn } from '../util/spreadsheet';
-import { RadioGroup, RadioButton } from 'react-radio-buttons';
+import RadioButton from './radio_button';
 import AlertContainer from 'react-alert';
 
 class App extends React.Component {
@@ -71,24 +71,46 @@ class App extends React.Component {
           
         </div>
         <div className="radio-group">
-
-        <RadioGroup onChange={ this.handleRadio } horizontal>
-          <RadioButton value="Berry" rootColor="#cccccc" pointColor="#FF005C">
-            Berry
-          </RadioButton>
-          <RadioButton value="B2" rootColor="#cccccc" pointColor="#D500FF">
-            B2
-          </RadioButton>
-          <RadioButton value="Snap" rootColor="#cccccc" pointColor="#00E3FF">
-            Snap
-          </RadioButton>
-          <RadioButton value="L7" rootColor="#cccccc" pointColor="#96FF00">
-            L7
-          </RadioButton>
-          <RadioButton value="HQ" rootColor="#cccccc" pointColor="#FF9F00">
-            HQ
-          </RadioButton>
-        </RadioGroup>
+          <div
+            onClick={() => {
+              this.handleRadio('Berry');
+            }}>
+            <RadioButton 
+              house="Berry" 
+              selected={this.state.house} />
+          </div>
+          <div
+            onClick={() => {
+              this.handleRadio('B2');
+            }}>
+            <RadioButton
+              house="B2"
+              selected={this.state.house} />
+          </div>
+          <div
+            onClick={() => {
+              this.handleRadio('Snap');
+            }}>
+            <RadioButton
+              house="Snap"
+              selected={this.state.house} />
+          </div>
+          <div
+            onClick={() => {
+              this.handleRadio('L7');
+            }}>
+            <RadioButton
+              house="L7"
+              selected={this.state.house} />
+          </div>
+          <div
+            onClick={() => {
+              this.handleRadio('HQ');
+            }}>
+            <RadioButton
+              house="HQ"
+              selected={this.state.house} />
+          </div>
         </div>
         <form>
           <label>
