@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 // import { withRouter } from 'react-router';
 import { postColumn } from '../util/spreadsheet';
-import RadioButton from './radio_button';
+// import RadioButton from './radio_button';
+import { RadioButton, RadioGroup } from 'react-radio-buttons';
 import AlertContainer from 'react-alert';
 
 class App extends React.Component {
@@ -28,13 +29,14 @@ class App extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    postColumn(this.state);
-    this.alert.show('Message sent!', {
-      time: 5000,
-      type: 'success'
-    });
-    this.setState({
-      body: ''
+    postColumn(this.state).then(() => {
+      this.alert.show('Message sent!', {
+        time: 5000,
+        type: 'success'
+      });
+      this.setState({
+        body: ''
+      });
     });
 
     
@@ -58,6 +60,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
+        <img className="haas-logo" src="http://res.cloudinary.com/lara-cloud1/image/upload/v1513991438/haas_logo.jpg"/>
         <AlertContainer ref={a => this.alert = a} {...this.alertOptions} />
         <div className="description-container">
           <p>
@@ -71,7 +74,7 @@ class App extends React.Component {
           
         </div>
         <div className="radio-group">
-          <div
+          {/* <div
             onClick={() => {
               this.handleRadio('Berry');
             }}>
@@ -110,20 +113,37 @@ class App extends React.Component {
             <RadioButton
               house="HQ"
               selected={this.state.house} />
-          </div>
+          </div> */}
+        <RadioGroup onChange={ this.handleRadio } horizontal>
+          <RadioButton value="Berry" rootColor="#cccccc" pointColor="#FF005C">
+            Berry
+          </RadioButton>
+          <RadioButton value="B2" rootColor="#cccccc" pointColor="#D500FF">
+            B2
+          </RadioButton>
+          <RadioButton value="Snap" rootColor="#cccccc" pointColor="#00E3FF">
+            Snap
+          </RadioButton>
+          <RadioButton value="L7" rootColor="#cccccc" pointColor="#96FF00">
+            L7
+          </RadioButton>
+          <RadioButton value="HQ" rootColor="#cccccc" pointColor="#FF9F00">
+            HQ
+          </RadioButton>
+        </RadioGroup>
         </div>
-        <form>
-          <label>
-            Message
-          </label>
-          <input
+        <form className="message-form">
+          <textarea
             type="text"
             value={this.state.body}
             onChange={this.handleInput('body')}
             spellCheck="false"
+            placeholder="Leave a message!"
           />
-          <button onClick={this.handleSubmit}>Submit</button>
         </form>
+        <div className="submit-button">
+          <button onClick={this.handleSubmit}>Submit</button>
+        </div>
       </div>
     );
   }
