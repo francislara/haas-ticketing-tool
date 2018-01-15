@@ -115,6 +115,9 @@ class App extends React.Component {
               selected={this.state.house} />
           </div> */}
         <RadioGroup onChange={ this.handleRadio } horizontal>
+          <RadioButton value="Anonymous" rootColor="#cccccc" pointColor="#000000">
+              Anonymous
+          </RadioButton>
           <RadioButton value="Berry" rootColor="#cccccc" pointColor="#FF005C">
             Berry
           </RadioButton>
