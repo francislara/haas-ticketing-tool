@@ -5,6 +5,7 @@ import { postColumn } from '../util/spreadsheet';
 // import RadioButton from './radio_button';
 import { RadioButton, RadioGroup } from 'react-radio-buttons';
 import AlertContainer from 'react-alert';
+import Favicon from 'react-favicon';
 
 class App extends React.Component {
   constructor (props) {
@@ -60,6 +61,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
+        <Favicon url="http://res.cloudinary.com/lara-cloud1/image/upload/v1513991438/haas_logo.jpg" />
         <img className="haas-logo" src="http://res.cloudinary.com/lara-cloud1/image/upload/v1513991438/haas_logo.jpg"/>
         <AlertContainer ref={a => this.alert = a} {...this.alertOptions} />
         <div className="description-container">
